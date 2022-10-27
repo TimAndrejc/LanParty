@@ -1,0 +1,160 @@
+#neubar {
+  position: relative;
+    background: linear-gradient(145deg, #fc50ca, #fcd8a2);
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.4);
+    z-index: 1;
+  }
+   
+  .nav-item .active {
+    border-radius: 6px;
+
+  }
+  #neubar .dropdown-menu a:hover {
+    color: #454545
+  }
+  #neubar .nav-item {
+    margin : auto 4px;
+  }
+  #neubar a {
+   
+    padding-left:12px;
+    padding-right:12px;
+  }
+  #neubar .dropdown-menu {
+    background : #545454
+  }
+  a.navbar-brand {
+    color: #454545
+  }
+
+  *{box-sizing: border-box}
+  body {font-family: Verdana, sans-serif; margin:0}
+  .mySlides {display: none}
+  img {vertical-align: middle;}
+  
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 7200s;
+  }
+  
+  @keyframes fade {
+    from {opacity: 1} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  html,
+  body,
+  .intro {
+    height: 100%;
+  }
+  
+  @media (min-width: 560px) and (max-width: 750px) {
+    html,
+    body,
+    .intro {
+      height: 830px;
+    }
+  }
+  
+  @media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    .intro {
+      height: 830px;
+    }
+  }
+  
+
+  
+  .gradient-custom {
+    /* fallback for old browsers */
+    background:  #fc50ca;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom,#fc50ca , #fcd8a2);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom, #fc50ca, #fcd8a2)
+  }
+  body {
+    background-color: #fff7db !important;
+  }
+.intro {
+  margin-top: 2%;
+  
+}
