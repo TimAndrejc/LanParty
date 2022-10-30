@@ -11,7 +11,7 @@ require_once 'header.php';
                 <div class="my-md-5">
                   <div class="text-center pt-1">
                  <i class="fa-solid fa-gamepad fa-3x"></i>
-                    <h1 class="fw-bold my-5 text-uppercase">log in</h1>
+                    <h1 class="fw-bold my-5 text-uppercase">prijava</h1>
                   </div>
                   <div class="form-outline form-white mb-4">
                     <input type="email" id="typeEmail" class="form-control form-control-lg active" />

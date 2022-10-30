@@ -1,8 +1,6 @@
 <?php
 session_start();
 require_once 'connection.php';
-
-
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $email = $_POST['email'];
 $password = $_POST['password'];
