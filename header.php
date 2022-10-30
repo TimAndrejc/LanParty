@@ -36,10 +36,23 @@
    
       <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto "> 
+          <?php
+          session_start();
+          if(!isset($_SESSION['id'])){
+          echo'
           <li class="nav-item">
             <a class="nav-link mx-2" href="login.php">Prijava</a>
             </a>
-          </li>
+          </li>';}
+          else{
+            echo'
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="logout.php">Odjava</a>
+            </a>
+          </li>';
+          }
+
+          ?>
           <li class="nav-item">
             <a class="nav-link mx-2" href="info.php">Informacije</a>
           </li>
