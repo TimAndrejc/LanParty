@@ -14,11 +14,11 @@ require_once 'header.php';
                     <h1 class="fw-bold my-5 text-uppercase">prijava</h1>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="email" id="typeEmail" class="form-control form-control-lg active" />
+                    <input type="email" name="email" id="typeEmail" class="form-control form-control-lg active" />
                     <label class="form-label" for="typeEmail">Email</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="password" id="typePassword" class="form-control form-control-lg active" />
+                    <input type="password" id="typePassword" name="password" class="form-control form-control-lg active" />
                     <label class="form-label" for="typePassword">Password</label>
                   </div>
                   <div class="text-center py-5">
