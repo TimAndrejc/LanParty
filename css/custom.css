@@ -1,6 +1,6 @@
 #neubar {
   position: relative;
-    background: linear-gradient(145deg, #fc50ca, #fcd8a2);
+    background: linear-gradient(145deg, #294391, #ac71d9);
     box-shadow: 4px 6px 12px rgba(0,0,0,0.4);
     z-index: 1;
   }
@@ -149,10 +149,10 @@
     background: -webkit-linear-gradient(to bottom,#fc50ca , #fcd8a2);
   
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to bottom, #fc50ca, #fcd8a2)
+    background: linear-gradient(to bottom, #fc50ca, #ac71d9)
   }
   body {
-    background-color: #fff7db !important;
+    background-color: #4D50A5 !important;
   }
 .intro {
   margin-top: 2%;
