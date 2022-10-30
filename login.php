@@ -1,7 +1,7 @@
 <?php
 require_once 'header.php';
 ?>
-
+<form action="check_login.php" method="post"> 
 <section class="intro">
       <div class="container">
         <div class="row justify-content-center">
@@ -36,7 +36,7 @@ require_once 'header.php';
     </div>
   </div>
 </section>
-
+<form>
 <?php
 require_once 'footer.php';
 ?>
