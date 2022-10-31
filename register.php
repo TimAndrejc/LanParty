@@ -1,7 +1,7 @@
 <?php
 require_once 'header.php';
 ?>
-<form action="check_login.php" method="post"> 
+<form action="push_registration.php" method="post"> 
 <section class="intro">
       <div class="container">
         <div class="row justify-content-center">
@@ -11,23 +11,26 @@ require_once 'header.php';
                 <div class="my-md-5">
                   <div class="text-center pt-1">
                  <i class="fa-solid fa-gamepad fa-3x"></i>
-                    <h1 class="fw-bold my-5 text-uppercase">prijava</h1>
+                    <h1 class="fw-bold my-5 text-uppercase">registracija</h1>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="email" name="email" id="typeEmail" autocomplete="email" placeholder="Napiši email ..." class="form-control form-control-lg active" />
+                    <input type="email" name="email" id="typeEmail" maxlength="50"  autocomplete="email" placeholder="Napiši email ..." class="form-control form-control-lg active" />
                     <label class="form-label" for="typeEmail">Email</label>
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" name="username" id="typeEmail" maxlength="15" placeholder="Napiši uporabniško ime ..." class="form-control form-control-lg active" />
+                    <label class="form-label" for="typeEmail">Uporabniško ime</label>
                   </div>
                   <div class="form-outline form-white mb-4">
                     <input type="password" id="typePassword" placeholder="Napiši geslo ..." name="password" class="form-control form-control-lg active" />
                     <label class="form-label" for="typePassword">Geslo</label>
                   </div>
                   <div class="text-center py-5">
-                    <button class="btn btn-light btn-lg btn-rounded px-5" type="submit">Prijava</button>
+                    <button class="btn btn-light btn-lg btn-rounded px-5" type="submit">Registracija</button>
                   </div>
                 </div>
                 <div class="text-center">
-                <p class="mb-0"><a href="register.php" class="text-white fw-bold">Še nimaš računa?</a></p>
-                  <p class="mb-0"><a href="#!" class="text-white fw-bold">Pozabljeno geslo?</a></p>
+                <p class="mb-0"><a href="login.php" class="text-white fw-bold">Že imaš račun?</a></p>
                 </div>
 
               </div>
@@ -38,6 +41,7 @@ require_once 'header.php';
   </div>
 </section>
 <form>
+
 <?php
 require_once 'footer.php';
 ?>

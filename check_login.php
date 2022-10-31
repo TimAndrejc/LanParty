@@ -4,10 +4,11 @@ require_once 'connection.php';
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $email = $_POST['email'];
 $password = $_POST['password'];
+$username = htmlspecialchars($username);
+    $email = htmlspecialchars($email);
     $query = "SELECT * FROM users WHERE email=?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$email]);
-    
     if ($stmt->rowCount() == 1) {
         $user = $stmt->fetch();
         if (password_verify($password, $user['password'])) {

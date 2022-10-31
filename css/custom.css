@@ -34,7 +34,7 @@
   
   /* Slideshow container */
   .slideshow-container {
-    max-width: 1000px;
+    max-width: 100%;
     position: relative;
     margin: auto;
   }
@@ -149,7 +149,10 @@
     background: -webkit-linear-gradient(to bottom,#fc50ca , #fcd8a2);
   
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to bottom, #fc50ca, #ac71d9)
+    background: linear-gradient(to bottom, #fc50ca, #ac71d9);
+    -webkit-box-shadow:0 0 20px #fc50ca  !important; 
+    -moz-box-shadow: 0 0 20px #fc50ca !important; 
+    box-shadow:0 0 20px #fc50ca !important; 
   }
   body {
     background-color: #4D50A5 !important;
@@ -157,4 +160,21 @@
 .intro {
   margin-top: 2%;
   
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+ 
+
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+ 
+
 }
