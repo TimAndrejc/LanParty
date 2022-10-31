@@ -155,7 +155,8 @@
     box-shadow:0 0 20px #fc50ca !important; 
   }
   body {
-    background-color: #4D50A5 !important;
+  
+    background: radial-gradient(circle, rgba(172,113,217,1) 0%, rgba(41,67,145,1) 100%) !important;
   }
 .intro {
   margin-top: 2%;
