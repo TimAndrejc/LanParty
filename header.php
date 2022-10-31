@@ -37,6 +37,7 @@
       <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto "> 
           <?php
+          require_once 'connection.php'
           session_start();
           if(!isset($_SESSION['id'])){
           echo'
@@ -45,6 +46,11 @@
             </a>
           </li>';}
           else{
+            // pdo check if user is in a team or is the creator of one  
+            $sql = "SELECT * FROM teams t INNER JOIN user_teams ut ON t.id = ut.team_id  WHERE creator_id = ? ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$_SESSION['id']]);
+            $team = $stmt->fetch();
             echo'
           <li class="nav-item">
             <a class="nav-link mx-2" href="logout.php">Odjava</a>
