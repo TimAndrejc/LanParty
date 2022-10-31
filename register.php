@@ -14,15 +14,15 @@ require_once 'header.php';
                     <h1 class="fw-bold my-5 text-uppercase">registracija</h1>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="email" name="email" id="typeEmail" maxlength="50"  autocomplete="email" placeholder="Napiši email ..." class="form-control form-control-lg active" />
+                    <input type="email" name="email" id="typeEmail" maxlength="50"  autocomplete="email" placeholder="Vnesi email" class="form-control form-control-lg active" />
                     <label class="form-label" for="typeEmail">Email</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="text" name="username" id="typeEmail" maxlength="15" placeholder="Napiši uporabniško ime ..." class="form-control form-control-lg active" />
+                    <input type="text" name="username" id="typeEmail" maxlength="15" placeholder="Vnesi uporabniško ime" class="form-control form-control-lg active" />
                     <label class="form-label" for="typeEmail">Uporabniško ime</label>
                   </div>
                   <div class="form-outline form-white mb-4">
-                    <input type="password" id="typePassword" placeholder="Napiši geslo ..." name="password" class="form-control form-control-lg active" />
+                    <input type="password" id="typePassword" placeholder="Vnesi geslo" name="password" class="form-control form-control-lg active" />
                     <label class="form-label" for="typePassword">Geslo</label>
                   </div>
                   <div class="text-center py-5">
