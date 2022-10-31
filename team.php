@@ -1,7 +1,7 @@
 <?php 
 
 if(isset($_POST['id'])){
- 
+    include 'header.php';
     require_once 'connection.php';
     $query ="SELECT * FROM teams WHERE id = ?";
     $stmt = $pdo->prepare($query);
@@ -10,16 +10,17 @@ if(isset($_POST['id'])){
         header("Location: index.php");
         die();
     }
+    
     $team = $stmt->fetch();
-    $query = "SELECT * FROM user_teams WHERE user_id = ?";
+    $query = "SELECT * FROM user_teams WHERE user_id = ? && team_id = ?";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$_SESSION['user_id']]);
+    $stmt->execute([$_SESSION['id'], $_POST['id']]);
 
     if($stmt->rowCount() == 0){
         header("Location: index.php");
     }
-    
-    include 'header.php';
+
+   
     echo $team['name'];
 
     include_once 'footer.php';
