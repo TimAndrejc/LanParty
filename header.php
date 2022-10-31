@@ -66,20 +66,7 @@
               $team = $stmt->fetch();
               echo'
               <li class="nav-item">
-              <form action="team.php" method="post">
-              <input name ="id" type="hidden" value ="'.$team['id'].'">
-               <input onmouseover="this.style.color=`rgba(255, 255, 255, 0.75)`;"  onmouseout="this.style.color=`rgba(255, 255, 255, 0.55)`;" style="background: none!important;
-               border: none;
-               padding-top:8px;
-               padding-bottom:8px;
-               padding-left:20px;
-               color: hsla(0,0%,100%,.55);
-               
-               cursor: pointer;
-              
-               
-               " type ="submit" value ="'.$team['name'].'"> 
-                </form>
+                <a class="nav-link mx-2" href="team.php?id='.$team['id'].'">'.$team['name'].'</a>
               </li>';
             }
             echo'
