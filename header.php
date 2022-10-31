@@ -37,7 +37,7 @@
       <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto "> 
           <?php
-          require_once 'connection.php'
+          require_once 'connection.php';
           session_start();
           if(!isset($_SESSION['id'])){
           echo'
