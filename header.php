@@ -37,20 +37,51 @@
       <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto "> 
           <?php
-          require_once 'connection.php'
+          require_once 'connection.php';
           session_start();
           if(!isset($_SESSION['id'])){
           echo'
           <li class="nav-item">
             <a class="nav-link mx-2" href="login.php">Prijava</a>
             </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="register.php">Registracija</a>
+            </a>
           </li>';}
           else{
             // pdo check if user is in a team or is the creator of one  
-            $sql = "SELECT * FROM teams t INNER JOIN user_teams ut ON t.id = ut.team_id  WHERE creator_id = ? ";
+            $sql = "SELECT t.* FROM teams t INNER JOIN user_teams ut ON t.id = ut.team_id  WHERE t.creator_id = ? OR ut.user_id = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$_SESSION['id']]);
-            $team = $stmt->fetch();
+            $id = $_SESSION['id'];
+            $stmt->execute([$id, $id]);
+            if($stmt -> rowCount() == 0){
+              echo'
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="create_team.php">Ustvari ekipo</a>
+                </a>
+              </li>';
+            }
+            else{
+              $team = $stmt->fetch();
+              echo'
+              <li class="nav-item">
+              <form action="team.php" method="post">
+              <input name ="id" type="hidden" value ="'.$team['id'].'">
+               <input onmouseover="this.style.color=`rgba(255, 255, 255, 0.75)`;"  onmouseout="this.style.color=`rgba(255, 255, 255, 0.55)`;" style="background: none!important;
+               border: none;
+               padding-top:8px;
+               padding-bottom:8px;
+               padding-left:20px;
+               color: hsla(0,0%,100%,.55);
+               
+               cursor: pointer;
+              
+               
+               " type ="submit" value ="'.$team['name'].'"> 
+                </form>
+              </li>';
+            }
             echo'
           <li class="nav-item">
             <a class="nav-link mx-2" href="logout.php">Odjava</a>
