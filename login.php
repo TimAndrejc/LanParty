@@ -5,7 +5,7 @@ require_once 'header.php';
 <section class="intro">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5" style="margin-bottom:2rem">
             <div class="card gradient-custom" style="border-radius: 1rem;">
               <div class="card-body p-5 text-white" style="padding:0">
                 <div class="my-md-5">
@@ -21,7 +21,7 @@ require_once 'header.php';
                     <input type="password" id="typePassword" placeholder="Vnesi geslo" name="password" class="form-control form-control-lg active" />
                     <label class="form-label" for="typePassword">Geslo</label>
                   </div>
-                  <div class="text-center py-5">
+                  <div class="text-center py-5"  style="padding:5px !important">
                     <button class="btn btn-light btn-lg btn-rounded px-5" type="submit">Prijava</button>
                   </div>
                 </div>
@@ -36,8 +36,8 @@ require_once 'header.php';
         </div>
     </div>
   </div>
-</section>
-<form>
+  </section>
+</form>
 <?php
 require_once 'footer.php';
 ?>
