@@ -1,4 +1,11 @@
 <?php require_once 'header.php'; 
+if(isset($_GET['TeamCreated'])){
+    if($_GET['TeamCreated'] == 'success'){
+        echo "Team created successfully!";
+    }else{
+        echo "Team creation failed!";
+    }
+}
 ?>
 <div class="slideshow-container" style="width:100%">
 
