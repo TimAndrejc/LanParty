@@ -4,8 +4,12 @@ require_once 'connection.php';
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $email = $_POST['email'];
 $password = $_POST['password'];
-$username = htmlspecialchars($username);
-    $email = htmlspecialchars($email);
+
+$email = htmlspecialchars($email);
+$email = trim($email);
+$email = strip_tags($email);
+$email = stripslashes($email);
+
     $query = "SELECT * FROM users WHERE email=?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$email]);
@@ -14,7 +18,7 @@ $username = htmlspecialchars($username);
         if (password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];        
             $_SESSION['username'] = $user['username'];      
-            header("Location: index.php");
+            header("Location: index.php?prijava=success");
             die();
         }
     }
