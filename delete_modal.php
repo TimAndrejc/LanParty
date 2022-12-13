@@ -37,6 +37,8 @@ if(isset($_GET['delete'])){
         window.location.href = 'index.php';
       }, 2000);
      
+    }else{
+        window.location.href = 'team.php?id=".$_GET['id']."';
     }
   })</script>";
 }
