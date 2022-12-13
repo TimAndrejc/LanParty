@@ -2,6 +2,14 @@
 require_once 'connection.php'; 
 
 if(isset($_POST['username']) && isset($_POST['tag']) && isset($_POST['team_id'])){
+    session_start();
+    $query = "SELECT * FROM teams WHERE id = ? AND creator_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$_POST['team_id'], $_SESSION['id']]);
+    if($stmt->rowCount() == 0){
+        echo 'false';
+        return;
+    }
     $username = $_POST['username'];
     $tag = $_POST['tag'];
     $sql = "SELECT * FROM users WHERE username = ? AND tag = ?";
