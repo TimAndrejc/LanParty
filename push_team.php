@@ -15,6 +15,21 @@ try {
     $TeamName = strip_tags($TeamName);
     $TeamName = stripslashes($TeamName);
     $TeamName = htmlspecialchars($TeamName);
+
+    $query = "SELECT * FROM teams WHERE name = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$TeamName]);
+    if($stmt->rowCount() > 0){
+        header("Location: create_team.php?TeamCreated=taken");
+        exit();
+    }
+    $query = "SELECT * FROM teams WHERE creator_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$_SESSION['id']]);
+    if($stmt->rowCount() > 0){
+        header("Location: index.php?TeamCreated=already");
+        exit();
+    }
     $query ="INSERT INTO teams (name, creator_id) VALUES (?, ?)";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$TeamName, $_SESSION['id']]);
@@ -28,6 +43,6 @@ try {
     header("Location: index.php?TeamCreated=success");
     exit();
 } catch (PDOException $e) {
-    header("Location: index.php?TeamCreated=failed");
+    header("Location: create_team.php?TeamCreated=failed");
     exit();
 }
