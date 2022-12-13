@@ -25,7 +25,7 @@ $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
 $st = $stmt->rowCount();
 if($team['creator_id'] == $_SESSION['id'] && $st < 5){
-  
+  include_once 'team_creation_modal.php';
   include_once 'remove_modal.php';
   include_once 'delete_modal.php';
   include_once 'add_teammate_modal.php';

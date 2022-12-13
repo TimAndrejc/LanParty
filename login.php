@@ -1,5 +1,16 @@
 <?php
 require_once 'header.php';
+if(isset($_SESSION['id'])){
+    header('Location: index.php');
+    exit;
+}
+if(isset($_GET['error'])){
+    echo"<script> Swal.fire({
+      title: 'Napaka!',
+      text: 'Napačen email ali geslo!',
+      icon: 'error',
+      })</script>";
+}
 ?>
 <form action="check_login.php" method="post"> 
 <section class="intro">

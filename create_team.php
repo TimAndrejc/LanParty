@@ -5,29 +5,7 @@ if(!isset($_SESSION['id'])){
     header("Location: login.php");
     exit();
 }
-if(isset($_GET['TeamCreated'])){
-
-    if($_GET['TeamCreated'] == "taken"){
-        echo "<script>Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Skupina ni bila ustvarjena!',
-            text: 'Ime skupine je že zasedeno!',
-            showConfirmButton: false,
-            timer: 4000
-          });</script>";
-    }
-    if($_GET['TeamCreated'] == "failed"){
-        echo "<script>Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Skupina ni bila ustvarjena!',
-            text: 'Skupine ni bilo možno narediti!',
-            showConfirmButton: false,
-            timer: 4000
-          });</script>";
-    }
-}
+include_once 'team_creation_modal.php';
 ?>
 <form action="push_team.php" method="post">
 <section class="intro">
