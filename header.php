@@ -53,7 +53,6 @@
             </a>
           </li>';}
           else{
-            // pdo check if user is in a team or is the creator of one  
             $sql = "SELECT t.* FROM teams t INNER JOIN user_teams ut ON t.id = ut.team_id  WHERE t.creator_id = ? OR ut.user_id = ?";
             $stmt = $pdo->prepare($sql);
             $id = $_SESSION['id'];
@@ -62,6 +61,10 @@
               echo'
               <li class="nav-item">
                 <a class="nav-link mx-2" href="create_team.php">Ustvari ekipo</a>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="profile.php"> <i class="bi bi-person-badge"> </i>  Moj profil
                 </a>
               </li>';
             }
