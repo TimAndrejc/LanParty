@@ -5,45 +5,6 @@ if(!isset($_GET['id'])){
 }
 include 'header.php';
 require_once 'connection.php';
-if(isset($_GET['remove'])){
-    $query = "SELECT * FROM users WHERE id = ?";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute([$_GET['remove']]);
-    if($stmt->rowCount() == 0){
-        header("Location: index.php");
-        die();
-    }
-    $user = $stmt->fetch();
-  echo"<script> Swal.fire({
-    title: 'Odstrani ".$user['username']."?',
-    text: 'Si prepričan/a da želiš odstraniti igralca iz ekipe?',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Ja!',
-    cancelButtonText: 'Prekliči'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Odstranjen/a!',
-        '".$user['username']." je bil/a odstranjen/a iz ekipe.',
-        'success',
-      )
-      $.ajax({
-        url: 'remove.php',
-        type: 'POST',
-        data: {
-          id: ".$_GET['remove'].",
-          team: ".$_GET['id']."
-        }
-      });
-      setTimeout(function(){
-        window.location.href = 'team.php?id=".$_GET['id']."';
-      }, 2000);
-    }
-  })</script>";
-}
 if(isset($_GET['add'])){
   if($_GET['add'] == 'true'){
     echo "<script>Swal.fire({
@@ -100,6 +61,12 @@ $query = "SELECT * FROM user_teams WHERE team_id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
 $st = $stmt->rowCount();
+if($team['creator_id'] == $_SESSION['id'] && $st < 5){
+  
+  include_once 'remove_modal.php';
+  include_once 'delete_modal.php';
+}
+
 echo'<section class="intro">
 <div class="container">
   <div class="row justify-content-center">
@@ -130,10 +97,15 @@ echo'<section class="intro">
               echo'
               <div class="text-center pt-1">
               <a href="team.php?id='.$_GET['id'].'&add=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-person-plus-fill"></i> Dodaj igralca</a>
-              </div>';
+              </div>
+              <div class = "text-center pt-1">
+              <a href="team.php?id='.$_GET['id'].'&delete=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-trash-fill"></i> Izbriši ekipo</a>
+              </div> 
+              ';
             }
             echo'
     </div>
+  
   </div>
 </div>
 </div>
