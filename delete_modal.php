@@ -21,11 +21,12 @@ if(isset($_GET['delete'])){
     cancelButtonText: 'Prekliči'
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire(
-        'Izbrisano!',
-        'Skupina je bila izbrisana.',
-        'success',
-      )
+      Swal.fire({
+        title: 'Izbrisano!',
+        text: 'Skupina je bila izbrisana.',
+        icon: 'success',
+        showConfirmButton: false,
+      })
       $.ajax({
         url: 'delete_team.php',
         type: 'POST',

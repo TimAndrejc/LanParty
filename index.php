@@ -1,24 +1,15 @@
 <?php require_once 'header.php'; 
-if(isset($_GET['TeamCreated'])){
-    if($_GET['TeamCreated'] == 'success'){
-      echo "<script>Swal.fire({
+if(isset($_GET['prijava'])){
+    echo "<script>Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Skupina je bila ustvarjena!',
+        title: 'Prijava uspešna!',
         background: '#fff',
         showConfirmButton: false,
         timer: 1000
       });</script>";
-    }else{
-      echo "<script>Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Skupina ni bila ustvarjena!',
-        showConfirmButton: false,
-        timer: 1000
-      });</script>";
-    }
-}
+  }
+
 ?>
 <div class="slideshow-container" style="width:100%">
 
