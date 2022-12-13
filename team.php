@@ -3,7 +3,6 @@ if(!isset($_GET['id'])){
     header('Location: login.php');
     exit;
 }
-
 include 'header.php';
 require_once 'connection.php';
 if(isset($_GET['remove'])){
@@ -45,6 +44,43 @@ if(isset($_GET['remove'])){
     }
   })</script>";
 }
+if(isset($_GET['add'])){
+  if($_GET['add'] == 'true'){
+    echo "<script>Swal.fire({
+      title: 'Poišči igralca',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Dodaj',
+      cancelButtonText: 'Prekliči',
+      showLoaderOnConfirm: true,
+      preConfirm: (user) => {
+        return fetch(`add.php?user=${user}&team=".$_GET['id']."`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText)
+            }
+            return response.json()
+          })
+          .catch(error => {
+          })
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Dodan/a!',
+          'Igralec je dodan v ekipo.',
+          'success'
+        )
+      }
+    });</script>";
+}
+}
+
+
 $query ="SELECT * FROM teams WHERE id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
@@ -63,14 +99,13 @@ if($stmt->rowCount() == 0){
 $query = "SELECT * FROM user_teams WHERE team_id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
-
+$st = $stmt->rowCount();
 echo'<section class="intro">
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6 col-xl-5" style="margin-bottom:2rem">
       <div class="card gradient-custom" style="border-radius: 1rem;">
         <div class="card-body p-5 text-white" style="padding:0">
-          <div class="my-md-5">
             <div class="text-center pt-1">
             <i class="bi bi-people-fill fa-3x"></i>
               <h1 class="fw-bold my-5 text-uppercase">'.$team['name'].'</h1>
@@ -91,9 +126,13 @@ echo'<section class="intro">
               echo'
             </div><hr>';
             };
+            if($team['creator_id'] == $_SESSION['id'] && $st < 5){
+              echo'
+              <div class="text-center pt-1">
+              <a href="team.php?id='.$_GET['id'].'&add=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-person-plus-fill"></i> Dodaj igralca</a>
+              </div>';
+            }
             echo'
-        </div>
-      </div>
     </div>
   </div>
 </div>
