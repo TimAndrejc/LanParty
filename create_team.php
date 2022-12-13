@@ -20,7 +20,7 @@ include_once 'team_creation_modal.php';
                     <h1 class="fw-bold my-5 text-uppercase">registracija ekipe</h1>
                 </div>
                 <div class="form-outline form-white mb-4">
-                    <input type="text" name="TeamName" id="typeEmail" minlength= "3" maxlength="50"   placeholder="Vnesi ime ekipe" class="form-control form-control-lg active" />
+                    <input type="text" required name="TeamName" id="typeEmail" minlength= "3" maxlength="50"   placeholder="Vnesi ime ekipe" class="form-control form-control-lg active" />
 
                     <label class="form-label text-white" style ="font-weight: bold" for="typeEmail">Ime Ekipe</label>
                 </div>

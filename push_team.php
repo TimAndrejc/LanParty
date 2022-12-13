@@ -8,6 +8,10 @@ if(!isset($_POST['TeamName'])){
     header("Location: create_team.php");
     exit();
 }
+if(strlen($_POST['TeamName']) < 3){
+    header("Location: create_team.php?TeamCreated=short");
+    exit();
+}
 try {
     require_once 'connection.php';
     $TeamName = $_POST['TeamName'];
