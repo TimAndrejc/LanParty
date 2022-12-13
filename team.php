@@ -5,43 +5,6 @@ if(!isset($_GET['id'])){
 }
 include 'header.php';
 require_once 'connection.php';
-if(isset($_GET['add'])){
-  if($_GET['add'] == 'true'){
-    echo "<script>Swal.fire({
-      title: 'Poišči igralca',
-      input: 'text',
-      inputAttributes: {
-        autocapitalize: 'off'
-      },
-      showCancelButton: true,
-      confirmButtonText: 'Dodaj',
-      cancelButtonText: 'Prekliči',
-      showLoaderOnConfirm: true,
-      preConfirm: (user) => {
-        return fetch(`add.php?user=${user}&team=".$_GET['id']."`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(response.statusText)
-            }
-            return response.json()
-          })
-          .catch(error => {
-          })
-      },
-      allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Dodan/a!',
-          'Igralec je dodan v ekipo.',
-          'success'
-        )
-      }
-    });</script>";
-}
-}
-
-
 $query ="SELECT * FROM teams WHERE id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
@@ -65,6 +28,7 @@ if($team['creator_id'] == $_SESSION['id'] && $st < 5){
   
   include_once 'remove_modal.php';
   include_once 'delete_modal.php';
+  include_once 'add_teammate_modal.php';
 }
 
 echo'<section class="intro">
