@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 31, 2022 at 04:49 PM
+-- Generation Time: Dec 13, 2022 at 09:11 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -33,13 +33,6 @@ CREATE TABLE `teams` (
   `creator_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `teams`
---
-
-INSERT INTO `teams` (`id`, `name`, `creator_id`) VALUES
-(2, 'kul ekipa', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -50,12 +43,10 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` char(50) NOT NULL,
   `username` char(15) NOT NULL,
+  `tag` char(6) NOT NULL,
   `password` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `users`
---
 -- --------------------------------------------------------
 
 --
@@ -67,13 +58,6 @@ CREATE TABLE `user_teams` (
   `team_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user_teams`
---
-
-INSERT INTO `user_teams` (`id`, `team_id`, `user_id`) VALUES
-(2, 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -108,19 +92,19 @@ ALTER TABLE `user_teams`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_teams`
 --
 ALTER TABLE `user_teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
