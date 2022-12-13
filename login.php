@@ -11,6 +11,13 @@ if(isset($_GET['error'])){
       icon: 'error',
       })</script>";
 }
+if(isset($_GET['success'])){
+    echo"<script> Swal.fire({
+      title: 'Uspešna registracija!',
+      text: 'Zdaj se lahko prijavite v vaš račun!',
+      icon: 'success',
+      })</script>";
+}
 ?>
 <form action="check_login.php" method="post"> 
 <section class="intro">

@@ -26,6 +26,7 @@ if(isset($_GET['delete'])){
         text: 'Skupina je bila izbrisana.',
         icon: 'success',
         showConfirmButton: false,
+        allowOutsideClick: false,
       })
       $.ajax({
         url: 'delete_team.php',

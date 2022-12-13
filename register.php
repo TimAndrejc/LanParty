@@ -1,5 +1,13 @@
 <?php
 require_once 'header.php';
+if(isset($_GET['error'])){
+  echo"<script> Swal.fire({
+    title: 'Napaka!',
+    text: 'Račun na ta email že obstaja!',
+    icon: 'error',
+    timer: 2000,
+    })</script>";
+}
 ?>
 <form action="push_registration.php" method="post"> 
 <section class="intro">

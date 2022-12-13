@@ -24,11 +24,13 @@ if(isset($_GET['remove'])){
     cancelButtonText: 'Prekliči'
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire(
-        'Odstranjen/a!',
-        '".$user['username']." je bil/a odstranjen/a iz ekipe.',
-        'success',
-      )
+      Swal.fire({
+        title: 'Odstranjen/a!',
+        text: '".$user['username']." je bil/a odstranjen/a iz ekipe.',
+        icon: 'success',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+      })
       $.ajax({
         url: 'remove.php',
         type: 'POST',
@@ -39,7 +41,7 @@ if(isset($_GET['remove'])){
       });
       setTimeout(function(){
         window.location.href = 'team.php?id=".$_GET['id']."';
-      }, 2000);
+      }, 1500);
     }
   })</script>";
 }
