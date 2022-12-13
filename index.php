@@ -1,9 +1,9 @@
 <?php require_once 'header.php'; 
 if(isset($_GET['TeamCreated'])){
     if($_GET['TeamCreated'] == 'success'){
-        echo "Team created successfully!";
+      echo "<script>swal('Skupina je bila ustvarjena!');</script>";
     }else{
-        echo "Team creation failed!";
+      echo "<script>swal('Skupina ni bila ustvarjena!');</script>";
     }
 }
 ?>
