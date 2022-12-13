@@ -1,42 +1,83 @@
 <?php
 if(isset($_GET['add'])){
   if($_GET['add'] == 'true'){
-    echo "<script>Swal.fire({
+    ?>
+    <script src="https://unpkg.com/sweetalert2"></script> 
+<script>Swal.fire({
       title: 'Poišči igralca',
-      input: 'text',
-      inputAttributes: {
-        autocapitalize: 'off'
-      },
-      inputPlaceholder: 'Uporabniško ime',
-      inputValidator: (value) => {
-        if (!value) {
-          return 'Vnesi uporabniško ime!'
-        }
-      },
+      html:
+      '<input id="swal-input1" autocomplete="off" placeholder="Uporabniško ime" class="swal2-input">' +
+      '<input id="swal-input2" autocomplete="off" placeholder ="Tag"class="swal2-input">',
+      focusConfirm: false,
+      required: true,
       showCancelButton: true,
       confirmButtonText: 'Dodaj',
       cancelButtonText: 'Prekliči',
       showLoaderOnConfirm: true,
-      preConfirm: (user) => {
-        return fetch(`add.php?user=${user}&team=".$_GET['id']."`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(response.statusText)
+      preConfirm: function () {
+                return new Promise(function (resolve) {
+                    // Validate input
+                    if ($('#swal-input1').val() == '' || $('#swal-input2').val() == '') {
+                        swal.showValidationMessage("Izpolni obe polji!")
+                        swal.enableButtons()
+                        swal.hideLoading();
+                        
+                    } else {
+                        swal.resetValidationMessage(); 
+                        resolve([
+                            $('#swal-input1').val(),
+                            $('#swal-input2').val()
+                        ]);
+                    }
+                })
+            },
+            onOpen: function () {
+                $('#swal-input1').focus()
             }
-            return response.json()
-          })
-          .catch(error => {
-          })
-      },
-      allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Dodan/a!',
-          'Igralec je dodan v ekipo.',
-          'success'
-        )
-      }
-    });</script>";
+        }).then(function (result) {
+            if (typeof(result.value) == 'undefined') {
+                return false;
+            }
+            console.log(result.value);
+            var username = result.value[0];
+            var tag = result.value[1];
+            $.ajax({
+                url: 'add_teammate.php',
+                type: 'POST',
+                data: {
+                    username: username,
+                    tag: tag,
+                    team_id : <?php echo $_GET['id']; ?>
+                },
+                success: function (data) {
+                    if (data == 'true') {
+                       new swal({
+                            title: 'Uspešno dodan igralec!',
+                            type: 'success',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            timer: 1500
+                        }).then(function () {
+                            window.location.href = 'team.php?id=<?php echo $_GET['id']; ?>';
+                        });
+                    } else {
+                        new swal({
+                            title: 'Napaka!',
+                            text: 'Igralec ne obstaja ali pa je že v skupini!',
+                            type: 'error',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            timer: 1500
+                        }).then(function () {
+                            window.location.href = 'team.php?id=<?php echo $_GET['id']; ?>';
+                        });
+                    }
+                }
+            });
+        }).catch(swal.noop);
+        </script>
+    <?php
 }
 }

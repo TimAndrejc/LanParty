@@ -25,12 +25,13 @@ if ( !empty($_POST['email'])
             
             if ($stmt->rowCount() == 0) {
             $pass = password_hash($password, PASSWORD_DEFAULT);
-    
-            $query = "INSERT INTO users (id, username, email, password, confirmed) VALUES (NULL, ?,?, ?, 0)";
+            $tag =  uniqid();
+            $tag = substr($tag, -5);
+            $query = "INSERT INTO users (id, username, email, tag,  password) VALUES (NULL, ?,?, ?, ?)";
 
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$username, $email, $pass]);
-            header("Location: login.php?success=awaitEmail");
+            $stmt->execute([$username, $email,$tag, $pass]);
+            header("Location: login.php?success=success");
             }
             else{
                 header("Location: register.php?error=AlreadyExists");
