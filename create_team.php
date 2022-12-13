@@ -15,11 +15,12 @@ require_once 'header.php';
                     <h1 class="fw-bold my-5 text-uppercase">registracija ekipe</h1>
                 </div>
                 <div class="form-outline form-white mb-4">
-                    <input type="text" name="TeamName" id="typeEmail" maxlength="50"   placeholder="Vnesi ime ekipe" class="form-control form-control-lg active" />
+                    <input type="text" name="TeamName" id="typeEmail" minlength= "3" maxlength="50"   placeholder="Vnesi ime ekipe" class="form-control form-control-lg active" />
+
                     <label class="form-label text-white" style ="font-weight: bold" for="typeEmail">Ime Ekipe</label>
                 </div>
                 <div class="text-center py-5" style="padding:5px !important">
-                    <button class="btn btn-light btn-lg btn-rounded px-5" type="submit">Registracija</button>
+                    <button class="btn btn-light btn-lg btn-rounded px-5" type="submit">Ustvari</button>
                   </div>
                 </div>
             </div>
