@@ -50,18 +50,12 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` char(50) NOT NULL,
   `username` char(15) NOT NULL,
-  `password` char(255) NOT NULL,
-  `confirmed` int(11) NOT NULL
+  `password` char(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
-
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `confirmed`) VALUES
-(1, 'tim.andrejc@scv.si', 'Ducky', '$2y$10$alId.W3Y/ZYsOJh7HnTomua110Re4mUArZ/snMeS0BCVfGqkaOVHu', 0),
-(2, 'duckyseaofthives@gmail.com', 'aim', '$2y$10$3Y/aM7.0x98j.WdgMJx8S.rWjyVHK0l8ndkxXyOLrlpqAnUeEp3pi', 0);
-
 -- --------------------------------------------------------
 
 --
