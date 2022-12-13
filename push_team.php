@@ -40,7 +40,12 @@ try {
     $query = "INSERT INTO user_teams (user_id, team_id) VALUES (?, ?)";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$_SESSION['id'], $team_id['id']]);
-    header("Location: index.php?TeamCreated=success");
+    $query ="SELECT * FROM teams WHERE creator_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$_SESSION['id']]);
+    $team = $stmt->fetch();
+    $team = $team['id'];
+    header("Location:team.php?id=$team&TeamCreated=success");
     exit();
 } catch (PDOException $e) {
     header("Location: create_team.php?TeamCreated=failed");
