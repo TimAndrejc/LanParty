@@ -1,9 +1,22 @@
 <?php require_once 'header.php'; 
 if(isset($_GET['TeamCreated'])){
     if($_GET['TeamCreated'] == 'success'){
-      echo "<script>swal('Skupina je bila ustvarjena!');</script>";
+      echo "<script>Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Skupina je bila ustvarjena!',
+        background: '#fff',
+        showConfirmButton: false,
+        timer: 1000
+      });</script>";
     }else{
-      echo "<script>swal('Skupina ni bila ustvarjena!');</script>";
+      echo "<script>Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Skupina ni bila ustvarjena!',
+        showConfirmButton: false,
+        timer: 1000
+      });</script>";
     }
 }
 ?>
