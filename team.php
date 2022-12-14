@@ -24,11 +24,16 @@ $query = "SELECT * FROM user_teams WHERE team_id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
 $st = $stmt->rowCount();
-if($team['creator_id'] == $_SESSION['id'] && $st < 5){
+if($team['creator_id'] == $_SESSION['id']){
   include_once 'modals/team_creation_modal.php';
   include_once 'modals/remove_modal.php';
   include_once 'modals/delete_modal.php';
-  include_once 'modals/add_teammate_modal.php';
+  if($st < 5)
+  {
+    include_once 'modals/add_teammate_modal.php';
+  }
+  
+}else{
   include_once 'modals/leave_modal.php';
 }
 
@@ -58,11 +63,16 @@ echo'<section class="intro">
               echo'
             </div><hr>';
             };
-            if($team['creator_id'] == $_SESSION['id'] && $st < 5){
+            if($team['creator_id'] == $_SESSION['id']){
+              if($st < 5)
+              {
+                echo'
+                <div class="text-center pt-1">
+                <a href="team.php?id='.$_GET['id'].'&add=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-person-plus-fill"></i> Dodaj igralca</a>
+                </div>';
+              }
+              
               echo'
-              <div class="text-center pt-1">
-              <a href="team.php?id='.$_GET['id'].'&add=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-person-plus-fill"></i> Dodaj igralca</a>
-              </div>
               <div class = "text-center pt-1">
               <a href="team.php?id='.$_GET['id'].'&delete=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-trash-fill"></i> Izbriši ekipo</a>
               </div> 
