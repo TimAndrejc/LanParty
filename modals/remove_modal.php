@@ -42,6 +42,8 @@ if(isset($_GET['remove'])){
       setTimeout(function(){
         window.location.href = 'team.php?id=".$_GET['id']."';
       }, 1500);
-    }
+    }else{
+      window.location.href = 'team.php?id=".$_GET['id']."';
+  }
   })</script>";
 }
