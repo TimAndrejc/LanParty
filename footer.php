@@ -26,12 +26,12 @@
 <div class="row" style="text-align: center; vertical-align:middle;">
   <div class="col-xs-12 col-md-3" style="padding: 5px">
     <div class="element">
-      <a href ="https://www.redbull.com" ><img style="position: relative;  top: 50%;  transform: translateY(-50%); height: 64px;width: 140px;" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/RedBullEnergyDrink.svg/1200px-RedBullEnergyDrink.svg.png" alt="Red Bull"></a>
+      <a href ="https://www.redbull.com" ><img style="position: relative;  top: 50%;  transform: translateY(-50%); height: 100px;width: 180px;" src="https://resources.redbull.com/logos/redbullcom/v3/redbullcom-logo.svg" alt="Red Bull"></a>
     </div>
   </div>
   <div class="col-xs-12 col-md-3" style="padding: 5px">
     <div class="element">
-      <a href ="https://gorenjegostinstvo.si/"><img style="position: relative;  top: 50%;  transform: translateY(-50%); height: 64px;width: 256px;" src="https://gorenjegostinstvo.si/wp-content/uploads/2017/04/logon.png" alt="Gorenje Gostinjstvo"></a>
+      <a href ="https://gorenjegostinstvo.si/"><img style="position: relative;  top: 50%;  transform: translateY(-50%); height: 70px;width: 250px;" src="pics/gorenje.png" alt="Gorenje Gostinjstvo"></a>
     </div>
   </div>
   <div class="col-xs-12 col-md-3" style="padding: 5px">
