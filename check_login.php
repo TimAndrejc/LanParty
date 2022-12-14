@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION['id'])){
+    header("Location: index.php");
+    die();
+}
 require_once 'connection.php';
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $email = $_POST['email'];
