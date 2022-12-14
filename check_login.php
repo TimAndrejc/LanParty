@@ -3,12 +3,12 @@ session_start();
 require_once 'connection.php';
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $email = $_POST['email'];
-$password = $_POST['password'];
+    $password = $_POST['password'];
 
-$email = htmlspecialchars($email);
-$email = trim($email);
-$email = strip_tags($email);
-$email = stripslashes($email);
+    $email = htmlspecialchars($email);
+    $email = trim($email);
+    $email = strip_tags($email);
+    $email = stripslashes($email);
 
     $query = "SELECT * FROM users WHERE email=?";
     $stmt = $pdo->prepare($query);
