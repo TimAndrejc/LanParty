@@ -25,10 +25,11 @@ $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
 $st = $stmt->rowCount();
 if($team['creator_id'] == $_SESSION['id'] && $st < 5){
-  include_once 'team_creation_modal.php';
-  include_once 'remove_modal.php';
-  include_once 'delete_modal.php';
-  include_once 'add_teammate_modal.php';
+  include_once 'modals/team_creation_modal.php';
+  include_once 'modals/remove_modal.php';
+  include_once 'modals/delete_modal.php';
+  include_once 'modals/add_teammate_modal.php';
+  include_once 'modals/leave_modal.php';
 }
 
 echo'<section class="intro">
@@ -65,6 +66,13 @@ echo'<section class="intro">
               <div class = "text-center pt-1">
               <a href="team.php?id='.$_GET['id'].'&delete=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-trash-fill"></i> Izbriši ekipo</a>
               </div> 
+              ';
+            }else
+            if($team['creator_id'] != $_SESSION['id']){
+              echo'
+              <div class="text-center pt-1">
+              <a href="team.php?id='.$_GET['id'].'&leave=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-x"></i> Zapusti ekipo</a>
+              </div>
               ';
             }
             echo'

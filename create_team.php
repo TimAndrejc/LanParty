@@ -5,7 +5,7 @@ if(!isset($_SESSION['id'])){
     header("Location: login.php");
     exit();
 }
-include_once 'team_creation_modal.php';
+include_once 'modals/team_creation_modal.php';
 ?>
 <form action="push_team.php" method="post">
 <section class="intro">
