@@ -3,7 +3,7 @@
 
 <head>
 <title> ERŠ - LAN Party </title>
-<favicon href="pics/logo.ico" type="image/x-icon">
+<link rel="icon" href="pics/logo.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
