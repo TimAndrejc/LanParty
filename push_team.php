@@ -19,6 +19,7 @@ try {
     $TeamName = strip_tags($TeamName);
     $TeamName = stripslashes($TeamName);
     $TeamName = htmlspecialchars($TeamName);
+    $TeamName = str_replace(' ', '', $TeamName);
 
     $query = "SELECT * FROM teams WHERE name = ?";
     $stmt = $pdo->prepare($query);

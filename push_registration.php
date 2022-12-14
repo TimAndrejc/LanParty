@@ -18,6 +18,7 @@ if ( !empty($_POST['email'])
     $username = strip_tags($username);
     $username = stripslashes($username);
     $username = htmlspecialchars($username);
+    $username = str_replace(' ', '', $username);
 
             $query = "SELECT * FROM users WHERE email=?";
             $stmt = $pdo->prepare($query);
