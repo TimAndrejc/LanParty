@@ -4,7 +4,16 @@ require_once 'header.php';
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
     exit();
+}else{
+    $query = "SELECT * FROM user_teams WHERE user_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$_SESSION['id']]);
+    if($stmt->rowCount() > 0){
+        header("Location: index.php");
+        die();
+    }
 }
+
 include_once 'modals/team_creation_modal.php';
 ?>
 <form action="push_team.php" method="post">
