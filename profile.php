@@ -1,10 +1,12 @@
 <?php
 include_once 'header.php';
 require_once 'connection.php';
-if(isset($_GET['id'])){
-  $sql = "SELECT * FROM users WHERE id = ?";
+if(isset($_GET['user'])){
+  $tag = substr($_GET['user'], -5);
+  $username = substr($_GET['user'], 0, -5);
+  $sql = "SELECT * FROM users WHERE username = ? AND tag = ?";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([$_GET['id']]);
+  $stmt->execute([$username, $tag]);
   $user = $stmt->fetch();
 }else if (isset($_SESSION['id'])){
   $sql = "SELECT * FROM users WHERE id = ?";
@@ -25,15 +27,19 @@ if(isset($_GET['id'])){
               <div class="card-body p-5 text-white" style="padding:0">
                 <div class="my-md-5">
                   <div class="text-center pt-1">
-                 <i class="bi bi-person-badge fa-3x"></i>
-                    <h1 class="fw-bold my-5"><?php echo"".$user['username']."#".$user['tag'];?></h1>
+                   
+                 <i class="bi bi-person-badge fa-3x"></i><br>
+                 
+                    <h1 class="fw-bold my-2"><?php echo"".$user['username']."#".$user['tag'];?></h1>
+                    <section> Uporabniško ime#tag (npr. Igralec#e1234) </section>
                 </div>
               </div>
             <div style ="text-align:center; margin: 0 auto">
             <?php
             if(isset($_SESSION['id'])){
               if($_SESSION['id'] == $user['id']){
-                echo '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost/LanParty/profile.php?id='.$_SESSION['id'].'" alt="profile" style="max-height: 200px; max-width:200px; object-fit: contain; border-radius:8px">';
+              $user = $user['username']."".$user['tag'];
+                echo '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost/LanParty/profile.php?user='.$user.'" alt="profile" style="max-height: 200px; max-width:200px; object-fit: contain; border-radius:8px">';
               }
             }
             ?>
