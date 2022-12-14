@@ -63,10 +63,7 @@
                 <a class="nav-link mx-2" href="create_team.php">Ustvari ekipo</a>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="profile.php"> <i class="bi bi-person-badge"> </i>  Moj profil
-                </a>
-              </li>';
+              ';
             }
             else{
               $team = $stmt->fetch();
@@ -76,6 +73,10 @@
               </li>';
             }
             echo'
+            <li class="nav-item">
+                <a class="nav-link mx-2" href="profile.php"> <i class="bi bi-person-badge"> </i>  Moj profil
+                </a>
+              </li>
           <li class="nav-item">
             <a class="nav-link mx-2" href="logout.php">Odjava</a>
             </a>
