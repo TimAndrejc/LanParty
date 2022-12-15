@@ -85,7 +85,7 @@
 
           ?>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="info.php">Informacije</a>
+            <a class="nav-link mx-2" href="contact.php">Kontakt</a>
           </li>
         </ul>
       </div>
