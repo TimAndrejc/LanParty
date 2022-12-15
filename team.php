@@ -57,7 +57,7 @@ echo'<section class="intro">
             echo '
             <div class="form-outline form-white mb-4"> '.$teamamates['username'].'
             ';
-             if($teamamates['id'] != $_SESSION['id'] && $team['creator_id'] == $_SESSION['id']){
+             if($teamamates['id'] != $_SESSION['id'] && $team['creator_id'] == $_SESSION['id'] && $team['confirmed'] == 0){
               echo'<a href ="team.php?id='.$_GET['id'].'&remove='.$teamamates['id'].'" class ="link-light" /><div style = "float:right; "><i class="bi bi-x"></i></div> </a>';
              }
               echo'
@@ -70,6 +70,22 @@ echo'<section class="intro">
                 <div class="text-center pt-1">
                 <a href="team.php?id='.$_GET['id'].'&add=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-person-plus-fill"></i> Dodaj igralca</a>
                 </div>';
+              }else{
+              
+             
+                if($team['confirmed'] == 0){
+                  include 'modals/add_tournament_modal.php';
+                  echo'
+                  <div class="text-center pt-1">
+                  <a href="team.php?id='.$_GET['id'].'&add_to_tourney=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-check"></i> Prijava ekipe na turnir</a>
+                  </div>';
+                }else{
+                  include 'modals/remove_from_tourney_modal.php';
+                echo'
+                <div class="text-center pt-1">
+                <a href="team.php?id='.$_GET['id'].'&remove_from_tourney=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-x-circle-fill"></i> Odjava ekipe</a>
+                </div>';
+                }
               }
               
               echo'
