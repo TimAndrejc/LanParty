@@ -1,4 +1,4 @@
-<h3 style="text-align: center;">Zahvala našim sponzorjem!<br /><br /></h3>
+<h3 style="text-align: center; color:white;">Zahvala našim sponzorjem!<br /><br /></h3>
 <div class="row" style="text-align: center; vertical-align:middle; width:100%">
   <div class="col-xs-12 col-md-3" style="padding: 5px">
     <div class="element">
@@ -23,7 +23,6 @@
   </div>
       
 </div>
-
 </div>
 </body>
 </html> 
