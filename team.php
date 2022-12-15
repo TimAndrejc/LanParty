@@ -77,7 +77,7 @@ echo'<section class="intro">
                   include 'modals/add_tournament_modal.php';
                   echo'
                   <div class="text-center pt-1">
-                  <a href="team.php?id='.$_GET['id'].'&add_to_tourney=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-check"></i> Prijava ekipe na turnir</a>
+                  <a href="team.php?id='.$_GET['id'].'&add_to_tourney=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-check-circle-fill" style="margin-right: 3px"></i>Prijava ekipe na turnir</a>
                   </div>';
                 }else{
                   include 'modals/remove_from_tourney_modal.php';
