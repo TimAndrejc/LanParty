@@ -18,9 +18,9 @@ if(isset($_POST['team'])){
     if($team['confirmed'] == 1){
         $conf = 0;
     }
-    $query = "UPDATE teams SET confirmed = ? WHERE id = ?";
+    $query = "UPDATE teams SET confirmed = ?, game=?  WHERE id = ?";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$conf, $_POST['team']]);
-    header("Location: index.php");
+    $stmt->execute([$conf, $_POST['game'], $_POST['team']]);
+    echo 'true';
     die();
 }

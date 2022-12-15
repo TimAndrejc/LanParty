@@ -17,7 +17,7 @@ if(isset($_GET['remove_from_tourney'])){
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Ja!',
+    confirmButtonText: 'Odjava!',
     cancelButtonText: 'Prekliči'
   }).then((result) => {
     if (result.isConfirmed) {
