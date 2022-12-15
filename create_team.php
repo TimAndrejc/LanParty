@@ -44,7 +44,6 @@ include_once 'modals/team_creation_modal.php';
 </div>
 </section>
 </form>
-<?php  
-require_once 'footer.php';
-?>
+</body>
+</html>
 

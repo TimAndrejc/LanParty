@@ -56,6 +56,5 @@ if(isset($_GET['success'])){
   </div>
   </section>
 </form>
-<?php
-require_once 'footer.php';
-?>
+</body>
+</html>

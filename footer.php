@@ -1,3 +1,4 @@
+
 <h3 style="text-align: center; color:white;">Zahvala našim sponzorjem!<br /><br /></h3>
 <div class="row" style="text-align: center; vertical-align:middle; width:100%">
   <div class="col-xs-12 col-md-3" style="padding: 5px">
@@ -21,8 +22,7 @@
       <a href ="http://blackbaud.com/" target="_blank"><img style="position: relative;  top: 50%;  transform: translateY(-50%);" src="//cdn-flightdec.userfirst.co.nz/uploads/sites/finz/files/Sponsors/blackbaud.png" alt="Visit Blackbaud"></a>
     </div>
   </div>
-      
-</div>
+      </div>
 </div>
 </body>
 </html> 

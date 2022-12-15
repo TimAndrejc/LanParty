@@ -107,10 +107,8 @@ echo'<section class="intro">
   </div>
 </div>
 </div>
-</section>';
+</section></body>
+</html>';
    
 
 
-
-
-include_once 'footer.php';

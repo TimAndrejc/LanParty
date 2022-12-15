@@ -50,6 +50,5 @@ if(isset($_GET['error'])){
 </section>
 <form>
 
-<?php
-require_once 'footer.php';
-?>
+</body>
+</html>
