@@ -12,7 +12,7 @@ if(isset($_GET['remove_from_tourney'])){
 
   echo"<script> Swal.fire({
     title: 'Odjava ekipe',
-    text: 'Če želite sodelovati v turnirju, se morate ponovno prijaviti!',
+    text: 'Če želite sodelovati v turnirju, morate ekipo ponovno prijaviti!',
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',

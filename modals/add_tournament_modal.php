@@ -12,7 +12,7 @@ if(isset($_GET['add_to_tourney'])){
 
   echo"<script> Swal.fire({
     title: 'Prijava ekipe',
-    text: 'Če želite kasneje spremeniti soigralce, se morate najprej odjaviti!',
+    text: 'Če želite kasneje spremeniti soigralce, morate ekipo najprej odjaviti!',
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
