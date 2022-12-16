@@ -10,6 +10,9 @@ if(isset($_POST['team'])){
         echo "failed";
         die();
     }
+    $query = "UPDATE teams SET confirmed = 0, game = NULL WHERE id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$_POST['team']]);
     $query = "DELETE FROM user_teams WHERE user_id = ? AND team_id = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$_SESSION['id'], $_POST['team']]);
