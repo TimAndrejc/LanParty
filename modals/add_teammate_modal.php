@@ -7,7 +7,7 @@ if(isset($_GET['add'])){
       title: 'Poišči igralca',
       html:
       '<input id="swal-input1" autocomplete="off" placeholder="Uporabniško ime" class="swal2-input">' +
-      '<input id="swal-input2" autocomplete="off" placeholder ="Tag"class="swal2-input"><br><section style="opacity: 60%">Ime#tag (tag napiši brez #)</section>',
+      '<input id="swal-input2" autocomplete="off" placeholder ="Tag"class="swal2-input"><br><section style="opacity: 60%">Ime#tag</section>',
       focusConfirm: false,
       required: true,
       showCancelButton: true,

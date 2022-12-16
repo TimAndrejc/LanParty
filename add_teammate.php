@@ -25,6 +25,7 @@ if(isset($_POST['username']) && isset($_POST['tag']) && isset($_POST['team_id'])
     $tag = strip_tags($tag);
     $tag = stripslashes($tag);
     $tag = str_replace(' ', '', $tag);
+    $tag = str_replace('#', '', $tag);
     $username = str_replace(' ', '', $username);
     $sql = "SELECT * FROM users WHERE username = ? AND tag = ?";
     $stmt = $pdo->prepare($sql);
