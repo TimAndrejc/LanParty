@@ -21,7 +21,10 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $user = $stmt->fetch();
         if (password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];        
-            $_SESSION['username'] = $user['username'];      
+            $_SESSION['username'] = $user['username'];     
+            if($user['admin'] == 1) {
+                $_SESSION['admin'] = 1;
+            }
             header("Location: index.php?prijava=success");
             die();
         }

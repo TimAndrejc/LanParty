@@ -1,10 +1,12 @@
 <?php 
+
 if(!isset($_GET['id'])){
     header('Location: login.php');
     exit;
 }
 include 'header.php';
 require_once 'connection.php';
+
 $query ="SELECT * FROM teams WHERE id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
@@ -12,14 +14,19 @@ if($stmt -> rowCount() == 0){
     header("Location: index.php");
     die();
 }
-    
 $team = $stmt->fetch();
 $query = "SELECT * FROM user_teams WHERE user_id = ? && team_id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_SESSION['id'], $_GET['id']]);
+if(isset($_SESSION['admin'])){
+
+}else{
 if($stmt->rowCount() == 0){
     header("Location: index.php");
 }
+
+}
+
 $query = "SELECT * FROM user_teams WHERE team_id = ?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['id']]);
@@ -94,7 +101,7 @@ echo'<section class="intro">
               </div> 
               ';
             }else
-            if($team['creator_id'] != $_SESSION['id']){
+            if($team['creator_id'] != $_SESSION['id'] && !isset($_SESSION['admin'])){
               echo'
               <div class="text-center pt-1">
               <a href="team.php?id='.$_GET['id'].'&leave=true" class="btn btn-outline-light btn-lg" style="border-radius: 2rem;"> <i class="bi bi-x"></i> Zapusti ekipo</a>

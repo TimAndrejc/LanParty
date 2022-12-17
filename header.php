@@ -53,6 +53,14 @@
             </a>
           </li>';}
           else{
+            if(isset($_SESSION['admin'])){
+              echo'
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="admin.php">Admin</a>
+                </a>
+              </li>
+              ';
+            }
             $sql = "SELECT t.* FROM teams t INNER JOIN user_teams ut ON t.id = ut.team_id  WHERE t.creator_id = ? OR ut.user_id = ?";
             $stmt = $pdo->prepare($sql);
             $id = $_SESSION['id'];
