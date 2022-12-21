@@ -4,9 +4,13 @@ if(isset($_GET['delete'])){
     $stmt = $pdo->prepare($query);
     $stmt->execute([$_GET['id']]);
     $team = $stmt->fetch();
+    $redirect = "team.php?id=".$_GET['id'];
     if($_SESSION['id'] != $team['creator_id']){
+      if(!isset($_SESSION['admin'])){
         header("Location: index.php");
         die();
+      }
+      $redirect = "admin.php";
     }
 
 
@@ -40,7 +44,7 @@ if(isset($_GET['delete'])){
       }, 2000);
      
     }else{
-        window.location.href = 'team.php?id=".$_GET['id']."';
+        window.location.href = '".$redirect."';
     }
   })</script>";
 }

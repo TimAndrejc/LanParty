@@ -10,9 +10,13 @@ if(isset($_POST['team'])){
     $stmt = $pdo->prepare($query);
     $stmt->execute([$_POST['team']]);
     $team = $stmt->fetch();
+    $redirect = "Location: index.php";
     if($_SESSION['id'] != $team['creator_id']){
-        header("Location: index.php");
-        die();
+        if(!isset($_SESSION['admin'])){
+            header("Location: index.php");
+            die();
+        }
+        $redirect = "Location: admin.php";
     }
     $query = "DELETE FROM user_teams WHERE team_id = ?";
     $stmt = $pdo->prepare($query);
@@ -20,6 +24,6 @@ if(isset($_POST['team'])){
     $query = "DELETE FROM teams WHERE id = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$_POST['team']]);
-    header("Location: index.php");
+    header($redirect);
     die();
 }
