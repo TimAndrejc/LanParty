@@ -21,6 +21,7 @@ $stmt->execute();
 $users = $stmt->fetchAll();
 $userCount = $stmt->rowCount();
 require_once 'modals/delete_modal.php';
+require_once 'modals/delete_user_modal.php';
 ?>
 
 <div class="container" style ="color:white">
