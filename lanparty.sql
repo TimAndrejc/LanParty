@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 15, 2022 at 09:54 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.6
+-- Gostitelj: 127.0.0.1
+-- Čas nastanka: 05. jan 2023 ob 19.55
+-- Različica strežnika: 10.4.27-MariaDB
+-- Različica PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lanparty`
+-- Zbirka podatkov: `lanparty`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teams`
+-- Struktura tabele `password_reset`
+--
+
+CREATE TABLE `password_reset` (
+  `id` int(11) NOT NULL,
+  `token` char(50) DEFAULT NULL,
+  `used` int(11) DEFAULT 0,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `teams`
 --
 
 CREATE TABLE `teams` (
@@ -33,12 +46,12 @@ CREATE TABLE `teams` (
   `confirmed` int(11) NOT NULL DEFAULT 0,
   `game` int(11) DEFAULT NULL,
   `creator_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktura tabele `users`
 --
 
 CREATE TABLE `users` (
@@ -47,39 +60,46 @@ CREATE TABLE `users` (
   `username` char(15) NOT NULL,
   `tag` char(6) NOT NULL,
   `password` char(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_teams`
+-- Struktura tabele `user_teams`
 --
 
 CREATE TABLE `user_teams` (
   `id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Indeksi zavrženih tabel
 --
 
 --
--- Indexes for table `teams`
+-- Indeksi tabele `password_reset`
+--
+ALTER TABLE `password_reset`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeksi tabele `teams`
 --
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`),
   ADD KEY `creator_id` (`creator_id`);
 
 --
--- Indexes for table `users`
+-- Indeksi tabele `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_teams`
+-- Indeksi tabele `user_teams`
 --
 ALTER TABLE `user_teams`
   ADD PRIMARY KEY (`id`),
@@ -87,39 +107,51 @@ ALTER TABLE `user_teams`
   ADD KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT zavrženih tabel
 --
 
 --
--- AUTO_INCREMENT for table `teams`
+-- AUTO_INCREMENT tabele `password_reset`
+--
+ALTER TABLE `password_reset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT tabele `teams`
 --
 ALTER TABLE `teams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT tabele `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user_teams`
+-- AUTO_INCREMENT tabele `user_teams`
 --
 ALTER TABLE `user_teams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Omejitve tabel za povzetek stanja
 --
 
 --
--- Constraints for table `teams`
+-- Omejitve za tabelo `password_reset`
+--
+ALTER TABLE `password_reset`
+  ADD CONSTRAINT `password_reset_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Omejitve za tabelo `teams`
 --
 ALTER TABLE `teams`
   ADD CONSTRAINT `teams_ibfk_1` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `user_teams`
+-- Omejitve za tabelo `user_teams`
 --
 ALTER TABLE `user_teams`
   ADD CONSTRAINT `user_teams_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`),

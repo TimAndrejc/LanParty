@@ -18,6 +18,10 @@ if(isset($_GET['success'])){
       icon: 'success',
       })</script>";
 }
+if(isset($_GET['forgotPassword'])){
+  include 'modals/forgot_password_modal.php';
+}
+
 ?>
 <form action="check_login.php" method="post"> 
 <section class="intro">
@@ -45,7 +49,7 @@ if(isset($_GET['success'])){
                 </div>
                 <div class="text-center">
                 <p class="mb-0"><a href="register.php" class="text-white fw-bold">Še nimaš računa?</a></p>
-                  <p class="mb-0"><a href="#!" class="text-white fw-bold">Pozabljeno geslo?</a></p>
+                  <p class="mb-0"><a href="login.php?forgotPassword=true" class="text-white fw-bold">Pozabljeno geslo?</a></p>
                 </div>
 
               </div>

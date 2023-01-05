@@ -1,15 +1,5 @@
 <?php require_once 'header.php'; 
-if(isset($_GET['prijava'])){
-    echo "<script>Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Prijava uspešna!',
-        background: '#fff',
-        showConfirmButton: false,
-        timer: 1000
-      });</script>";
-  }
-
+require_once 'modals/loginLogout_modal.php';
 ?>
 <div class="slideshow-container" style="width:100%">
 
