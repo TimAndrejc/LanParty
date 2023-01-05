@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Work+Sans&display=swap');
 #neubar {
   position: relative;
     background: linear-gradient(145deg, #294391, #ac71d9);
@@ -157,6 +158,7 @@
     box-shadow:0 0 20px #fc50ca !important; 
   }
   body {
+    font-family: 'Lexend Deca', sans-serif !important;
     background: radial-gradient(circle, rgba(172,113,217,1) 0%, rgba(41,67,145,1) 100%) !important;
   }
 .intro {
